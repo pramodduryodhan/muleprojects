@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="helloworld-test-suite.xml" />
+	<munit:test name="helloworld-test-suite-helloworldFlowTest" description="Test" doc:id="e05af2d7-f2de-4be9-9d81-7b732414769a" >
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to helloworldFlow" doc:id="202ea4c6-1382-443b-8904-cebf7ef7be25" name="helloworldFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="a3802f35-43c7-4d57-accd-3950eb393909" expression="#[payload]" is="#[MunitTools::equalToIgnoringCase('hello world')]" message="#['payload needs to be hello world']"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
