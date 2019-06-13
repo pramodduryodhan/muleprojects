@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
     
-    stage('Build') { 
+    stage('checkout') { 
       steps {
 			withMaven(maven:'maven') {
 				sh 'mvn -f  test/pom.xml clean install'
