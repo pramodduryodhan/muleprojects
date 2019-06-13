@@ -1,10 +1,15 @@
-pipeline { 
-    agent any  
-    stages { 
-        stage('Build') { 
-            steps { 
-               echo 'This is a minimal pipeline.' 
-            }
-        }
+pipeline {
+  agent any
+  stages {
+    
+    stage('checkout') { 
+      steps {
+			withMaven(maven:'maven') {
+				sh 'mvn -f  test/pom.xml clean install'
+			}
+        
+      }
     }
+    
+  }
 }
