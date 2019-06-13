@@ -9,7 +9,7 @@ pipeline {
       }
 
   }
-  tage ('Deploy'){
+  stage ('Deploy'){
  		steps {
  			withMaven(maven:'maven'){
  				bat 'mvn -f mule-jenkins-pipeline/pom.xml package deploy  -Dusername=pramod01 -Dpassword=Newuser@123 -Denvironment=dev -DmuleDeploy'
