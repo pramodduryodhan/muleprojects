@@ -4,7 +4,7 @@ pipeline {
     
     stage('checkout') { 
       steps {
-			withMaven(maven:'maven') {
+			withMaven(Maven:'Maven') {
 				sh 'mvn -f  test/pom.xml clean install'
 			}
         
