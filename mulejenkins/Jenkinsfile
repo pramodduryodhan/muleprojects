@@ -4,10 +4,17 @@ pipeline {
     stage('Build') { 
       steps {
         withMaven(maven:'maven'){
- 				bat 'mvn  -file mulejenkins/pom.xml clean install deploy'
+ 				bat 'mvn  -file mulejenkins/pom.xml clean install'
  			}
       }
 
   }
+  tage ('Deploy'){
+ 		steps {
+ 			withMaven(maven:'maven'){
+ 				bat 'mvn -f mule-jenkins-pipeline/pom.xml package deploy  -Dusername=pramod01 -Dpassword=Newuser@123 -Denvironment=dev -DmuleDeploy'
+ 			}
+ 		}
+ 	}
   }
 }
