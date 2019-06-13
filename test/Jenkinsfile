@@ -3,7 +3,7 @@ pipeline {
    stages {
     stage('Build') { 
       steps {
-        withMaven(maven:'maven'){
+        withMaven(Maven:'Maven'){
  				bat 'mvn -f test/pom.xml clean install'
  			}
       }
