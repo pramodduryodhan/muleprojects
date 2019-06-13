@@ -1,15 +1,7 @@
 pipeline {
   agent any
    stages {
-    stage('Build') { 
-      steps {
-        withMaven(maven:'maven'){
- 				bat 'mvn  -file mulejenkins/pom.xml clean install'
- 			}
-      }
-
-  }
-  stage ('Deploy'){
+  stage ('BuildAndDeploy'){
  		steps {
  			withMaven(maven:'maven'){
  				bat 'mvn -file mule-jenkins-pipeline/pom.xml package deploy  -Dusername=pramod02 -Dpassword=Newuser@123 -Denvironment=dev -DmuleDeploy'
