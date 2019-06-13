@@ -1,13 +1,14 @@
 pipeline {
-  agent any
-  environment {
+    environment {
     PATH = "C:\\Users\\pduryodh\\AppData\\Local\\Programs\\Git\\usr\\bin;C:\\Users\\pduryodh\\AppData\\Local\\Programs\\Git\\bin;${env.PATH}"
+  {
   stages {
     stage('Build') { 
       steps {
         sh 'mvn clean install'
       }
 
+  }
   }
   }
 }
